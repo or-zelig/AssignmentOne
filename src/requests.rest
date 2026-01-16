@@ -23,3 +23,6 @@ Content-Type: application/json
   "sender": "u2",
   "message": "Nice post!"
 }
+
+### Get Comment By Id
+GET http://localhost:3000/comment/{{commentId}}
