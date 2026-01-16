@@ -14,8 +14,10 @@ router.post("/", async (req, res) => {
     const post = await Post.create({ sender, title, content });
     return res.status(201).json(post);
   } catch (err) {
-    return res.status(500).json({ error: "internal_error" });
-  }
+  console.error("ERROR in <endpoint-name>:", err);
+  return res.status(500).json({ error: "internal_error" });
+}
+
 });
 
 // 2) Get All Posts: GET /post

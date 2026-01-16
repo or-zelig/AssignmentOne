@@ -1,6 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const uri = process.env.MONGO_URI;
-await mongoose.connect(uri);
+
+if (!uri) {
+  throw new Error("MONGO_URI is missing in .env");
+}
+
+mongoose.connect(uri);
 
 module.exports = mongoose;
