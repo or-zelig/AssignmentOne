@@ -1,3 +1,8 @@
+@baseUrl = http://localhost:3000
+@postId = PUT_POST_ID_HERE
+@commentId = PUT_COMMENT_ID_HERE
+
+
 ### Create Post
 POST http://localhost:3000/post
 Content-Type: application/json
