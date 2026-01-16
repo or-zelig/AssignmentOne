@@ -11,3 +11,13 @@ Content-Type: application/json
 ### Get All Posts
 GET http://localhost:3000/post
 
+
+### Create Comment
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "postId": "{{postId}}",
+  "sender": "u2",
+  "message": "Nice post!"
+}
