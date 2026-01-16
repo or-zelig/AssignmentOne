@@ -39,4 +39,18 @@ router.get("/:postId", async (req, res) => {
   }
 });
 
+// 4) Get Posts by Sender: GET /post?sender=<senderId>
+router.get("/", async (req, res) => {
+  try {
+    const { sender } = req.query;
+
+    const filter = sender ? { sender: String(sender) } : {};
+    const posts = await Post.find(filter).sort({ createdAt: -1 });
+
+    return res.json(posts);
+  } catch (err) {
+    return res.status(500).json({ error: "internal_error" });
+  }
+});
+
 module.exports = router;
