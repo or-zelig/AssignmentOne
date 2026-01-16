@@ -66,6 +66,18 @@ router.delete("/:commentId", async (req, res) => {
   }
 });
 
+// 10) Get Comments by Post: GET /comment?post=<postId>
+router.get("/", async (req, res) => {
+  try {
+    const { post } = req.query;
+    if (!post) return res.status(400).json({ error: "post query param is required" });
+
+    const comments = await Comment.find({ postId: String(post) }).sort({ createdAt: -1 });
+    return res.json(comments);
+  } catch (err) {
+    return res.status(400).json({ error: "invalid_id" });
+  }
+});
 
 
 module.exports = router;
