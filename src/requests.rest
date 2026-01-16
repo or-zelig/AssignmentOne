@@ -48,3 +48,6 @@ Content-Type: application/json
   "sender": "u2",
   "message": "Edited comment"
 }
+
+### Delete Comment
+DELETE http://localhost:3000/comment/{{commentId}}
