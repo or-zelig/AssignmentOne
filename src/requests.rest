@@ -11,3 +11,5 @@ Content-Type: application/json
 ### Get All Posts
 GET http://localhost:3000/post
 
+### Get Post By Id (replace id)
+GET http://localhost:3000/post/{{postId}}
