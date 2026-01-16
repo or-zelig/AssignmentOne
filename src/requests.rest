@@ -13,3 +13,13 @@ GET http://localhost:3000/post
 
 ### Get Post By Id (replace id)
 GET http://localhost:3000/post/{{postId}}
+
+### Create Comment
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "postId": "{{postId}}",
+  "sender": "u2",
+  "message": "Nice post!"
+}
