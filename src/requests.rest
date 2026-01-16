@@ -1,0 +1,9 @@
+### Create Post
+POST http://localhost:3000/post
+Content-Type: application/json
+
+{
+  "sender": "u1",
+  "title": "First post",
+  "content": "Hello world"
+}
