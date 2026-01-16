@@ -28,4 +28,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// 3) Get Post by ID: GET /post/:postId
+router.get("/:postId", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post) return res.status(404).json({ error: "not_found" });
+    return res.json(post);
+  } catch (err) {
+    return res.status(400).json({ error: "invalid_id" });
+  }
+});
+
 module.exports = router;
