@@ -17,6 +17,16 @@ GET http://localhost:3000/post/{{postId}}
 ### Get Posts By Sender
 GET http://localhost:3000/post?sender=u1
 
+### Update Post (replace id)
+PUT http://localhost:3000/post/{{postId}}
+Content-Type: application/json
+
+{
+  "sender": "u1",
+  "title": "Updated title",
+  "content": "Updated content"
+}
+
 ### Create Comment
 POST http://localhost:3000/comment
 Content-Type: application/json
