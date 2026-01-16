@@ -39,3 +39,12 @@ Content-Type: application/json
 
 ### Get Comment By Id
 GET http://localhost:3000/comment/{{commentId}}
+
+### Update Comment
+PUT http://localhost:3000/comment/{{commentId}}
+Content-Type: application/json
+
+{
+  "sender": "u2",
+  "message": "Edited comment"
+}

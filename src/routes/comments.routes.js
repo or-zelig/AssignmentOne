@@ -34,5 +34,26 @@ router.get("/:commentId", async (req, res) => {
   }
 });
 
+// 8) Update Comment: PUT /comment/:commentId
+router.put("/:commentId", async (req, res) => {
+  try {
+    const { sender, message } = req.body;
+    if (!sender || !message) {
+      return res.status(400).json({ error: "sender, message are required" });
+    }
+
+    const updated = await Comment.findByIdAndUpdate(
+      req.params.commentId,
+      { sender, message },
+      { new: true, runValidators: true }
+    );
+
+    if (!updated) return res.status(404).json({ error: "not_found" });
+    return res.json(updated);
+  } catch (err) {
+    return res.status(400).json({ error: "invalid_id" });
+  }
+});
+
 
 module.exports = router;
