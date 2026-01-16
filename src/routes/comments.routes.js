@@ -22,4 +22,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+// 7) Get Comment by ID: GET /comment/:commentId
+router.get("/:commentId", async (req, res) => {
+  try {
+    const comment = await Comment.findById(req.params.commentId);
+    if (!comment) return res.status(404).json({ error: "not_found" });
+    return res.json(comment);
+  } catch (err) {
+    return res.status(400).json({ error: "invalid_id" });
+  }
+});
+
+
 module.exports = router;
