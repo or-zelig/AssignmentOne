@@ -7,3 +7,7 @@ Content-Type: application/json
   "title": "First post",
   "content": "Hello world"
 }
+
+### Get All Posts
+GET http://localhost:3000/post
+

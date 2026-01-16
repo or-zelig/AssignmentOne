@@ -18,4 +18,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+// 2) Get All Posts: GET /post
+router.get("/", async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ createdAt: -1 });
+    return res.json(posts);
+  } catch (err) {
+    return res.status(500).json({ error: "internal_error" });
+  }
+});
+
 module.exports = router;
